@@ -451,6 +451,8 @@ span {
 
   color: #afb1b8;
 
+  border-radius: 50%;
+
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -462,7 +464,7 @@ span {
 .social-icon:hover,
 .social-icon:focus {
   background-color: var(--accent-text-color);
-  border-radius: 50%;
+  /* border-radius: 50%; */
   color: var(--accent-white-color);
 }
 
@@ -677,8 +679,6 @@ span {
 }
 
 .portfolio-cards {
-  position: relative;
-
   margin-right: 30px;
   margin-bottom: 30px;
 }
@@ -734,20 +734,23 @@ span {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.portfolio-box {
+  position: relative;
+
+  overflow: hidden;
+}
+
 .portfolio-cards-actions {
   position: absolute;
-  top: 0;
-  left: 0;
 
   width: 370px;
   height: 294px;
   padding: 63px 24px;
 
   background-color: rgba(33, 150, 243, 0.9);
-
   opacity: 0;
 
-  transform: translateY(100%);
+  transform: translateY(0);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -755,7 +758,7 @@ span {
 .portfolio-link:focus .portfolio-cards-actions {
   opacity: 1;
 
-  transform: translateY(0);
+  transform: translateY(-100%);
 }
 
 .portfolio-image {
@@ -803,7 +806,7 @@ span {
   width: 528px;
   height: 581px;
 
-  background-color: var(--secondary-background-color);
+  background-color: var(--main-background-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -821,5 +824,12 @@ span {
 }
 
 .modal-button {
+  position: absolute;
   display: block;
+  top: 0;
+  right: 0;
+
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
