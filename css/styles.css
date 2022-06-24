@@ -23,6 +23,12 @@ body {
   list-style: none;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .container {
   width: 1200px;
   padding-left: 15px;
@@ -106,6 +112,8 @@ span {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link:hover,
@@ -114,6 +122,11 @@ span {
 }
 
 .contacts-list {
+  display: flex;
+  align-items: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
   color: var(--secondary-text-color);
 
   font-weight: 500;
@@ -121,6 +134,9 @@ span {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-list:hover,
@@ -434,6 +450,9 @@ span {
   padding: 12px;
 
   color: #afb1b8;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon:last-child {
@@ -467,6 +486,9 @@ span {
   padding: 16px 32px;
 
   color: #afb1b8;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-data:hover,
@@ -518,6 +540,8 @@ span {
   font-size: 14px;
   line-height: 1.71;
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer .link {
@@ -528,6 +552,8 @@ span {
   font-size: 14px;
   line-height: 1.71;
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer .link:hover,
@@ -636,6 +662,10 @@ span {
   line-height: 1.63;
 
   cursor: pointer;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-button:hover,
@@ -660,6 +690,10 @@ span {
 .portfolio-cards:nth-last-child(-n + 3) {
   margin-bottom: 0;
 }
+
+/* .portfolio-cards-effects {
+  position: relative;
+} */
 
 /* Альтернативный вариант */
 
@@ -687,26 +721,24 @@ span {
 }
 
 .portfolio-link {
+  display: inline-block;
+
   text-decoration: none;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-cards:hover .portfolio-cards-actions {
-  opacity: 1;
-}
-
-.portfolio-cards:hover {
+.portfolio-link:hover,
+.portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.portfolio-image {
-  display: block;
-}
-
 .portfolio-cards-actions {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
+
   width: 370px;
   height: 294px;
   padding: 63px 24px;
@@ -714,6 +746,20 @@ span {
   background-color: rgba(33, 150, 243, 0.9);
 
   opacity: 0;
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-link:hover .portfolio-cards-actions,
+.portfolio-link:focus .portfolio-cards-actions {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.portfolio-image {
+  display: block;
 }
 
 .portfolio-cards-text {
@@ -741,13 +787,19 @@ span {
   height: 100vh;
 
   background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.8);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 528px;
   height: 581px;
 
@@ -755,12 +807,19 @@ span {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-close {
   position: absolute;
   width: 18px;
   height: 18px;
-  top: 0;
-  right: 0;
+  top: 8px;
+  right: 8px;
+}
+
+.modal-button {
+  display: block;
 }
